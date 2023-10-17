@@ -9,17 +9,19 @@ const spaceOrbits = new Map([
   ["neptune", 164.79132],
 ]);
 
+// could use enums
+
 export function age(planet: string, seconds: number): number {
   if (planet === undefined || seconds === undefined) {
     throw new Error("Invalid input");
   }
 
-  const secondsInEarthYear = 31557600;
+  const SECONDS_IN_EARTH_YEAR = 31557600;
   let orbitalPeriod = spaceOrbits.get(planet);
 
   if (orbitalPeriod === undefined) {
     throw new Error("Orbital period undefined");
   }
-  const ageOnEarth = seconds / secondsInEarthYear / orbitalPeriod;
-  return Math.round(ageOnEarth * 100) / 100;
+  const ageOnEarth = seconds / SECONDS_IN_EARTH_YEAR / orbitalPeriod;
+  return Math.round(ageOnEarth * 100) / 100; // or toFixed chooses how many decimals you want
 }
