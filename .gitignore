@@ -7,4 +7,4 @@
 **/*.md
 **/*.json
 **/*.lock
-**/*.test.ts
+# **/*.test.ts
