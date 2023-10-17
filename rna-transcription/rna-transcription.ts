@@ -1,8 +1,4 @@
-// DNA -> RNA: G -> C, C -> G, T -> A, A -> U
-
 export function toRna(dna: string): string {
-  // in case of input other than 'G', 'C', 'T', 'A'
-
   if (/[^GCTA]/.test(dna)) {
     throw Error("Invalid input DNA.");
   }
@@ -14,3 +10,9 @@ export function toRna(dna: string): string {
     .replaceAll("C", "G")
     .replaceAll("X", "C");
 }
+
+/*
+is it better to replace if with if (!(...)) {
+  return ...
+}
+*/
