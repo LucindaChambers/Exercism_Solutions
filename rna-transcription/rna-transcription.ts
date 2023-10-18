@@ -1,5 +1,7 @@
 export function toRna(dna: string): string {
-  if (/[^GCTA]/.test(dna)) {
+  const INVALID_DNA_RE = RegExp(`[^GCTA]`);
+
+  if (INVALID_DNA_RE.test(dna)) {
     throw Error("Invalid input DNA.");
   }
 
@@ -10,9 +12,3 @@ export function toRna(dna: string): string {
     .replaceAll("C", "G")
     .replaceAll("X", "C");
 }
-
-/*
-is it better to replace if with if (!(...)) {
-  return ...
-}
-*/
